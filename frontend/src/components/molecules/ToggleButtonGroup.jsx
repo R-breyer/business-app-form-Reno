@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Briefcase, User } from 'lucide-react'; // ✅ Icônes Lucide
 
 const Group = styled.div`
   display: flex;
@@ -17,22 +18,45 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
   &:hover {
     background-color: ${({ active }) => (active ? '#e65c00' : '#f5f5f5')};
   }
+
+  svg {
+    flex-shrink: 0;
+  }
 `;
 
-const ToggleButtonGroup = ({ name, options, value, onChange }) => {
+// Nouvelle version avec icônes associées à chaque option
+const optionsWithIcons = [
+  {
+    label: 'Merchant',
+    value: 'merchant',
+    icon: <Briefcase size={16} />
+  },
+  {
+    label: 'Agent',
+    value: 'agent',
+    icon: <User size={16} />
+  }
+];
+
+const ToggleButtonGroup = ({ name, value, onChange }) => {
   return (
     <Group>
-      {options.map((option) => (
+      {optionsWithIcons.map((option) => (
         <Button
           key={option.value}
           type="button"
           active={value === option.value}
           onClick={() => onChange(name, option.value)}
         >
+          {option.icon}
           {option.label}
         </Button>
       ))}

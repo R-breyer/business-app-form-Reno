@@ -42,5 +42,16 @@
     "industry": "tech",
     "privacyPolicy": true,
     "accountType": "agent"
+  },
+  {
+    "firstName": "c<sc",
+    "companyName": "louull",
+    "email": "robin.breyer@hotmail.com",
+    "password": "cwscswcsc",
+    "phone": "0475568644",
+    "country": "belgium",
+    "industry": "retail",
+    "privacyPolicy": true,
+    "accountType": "merchant"
   }
 ]
