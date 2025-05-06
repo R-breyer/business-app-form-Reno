@@ -55,7 +55,6 @@ business-App-Reno/
 2. En fonction du type (`merchant` ou `agent`), le champ "Company Name" s’affiche ou non.
 3. Formik gère l’état du formulaire et sa soumission.
 4. Yup valide les champs avant envoi.
-   - Exemple : "Company Name" est requis uniquement si le type de compte est `merchant`.
 5. À la soumission :
    - Les données sont envoyées au serveur (`POST /api/register`) avec Axios.
    - Le serveur les loggue dans la console et renvoie une réponse de succès.
