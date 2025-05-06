@@ -3,10 +3,18 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import TestimonialCard from '../atoms/TestimonialCard';
 
+const CarouselWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 220px;
+  max-width: 420px; 
+  height: 200px;
   overflow: visible;
 `;
 
@@ -21,11 +29,16 @@ const Dot = styled.button`
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: ${({ active }) => (active ? '#FF6600' : '#aaa')};
+  background-color: ${({ active }) => (active ? '#FF6600' : '#888')};
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 `;
+
+const cardVariants = {
+  initial: { opacity: 0, x: 30 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -30 }
+};
 
 const cards = [
   {
@@ -45,30 +58,22 @@ const cards = [
   }
 ];
 
-const variants = {
-  initial: { opacity: 0, x: 40 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -40 }
-};
-
 const TestimonialCarousel = () => {
   const [index, setIndex] = useState(0);
 
-  const handleDotClick = (i) => {
-    if (i !== index) setIndex(i);
-  };
+  const handleDotClick = (i) => setIndex(i);
 
   return (
-    <div>
+    <CarouselWrapper>
       <CarouselContainer>
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            variants={variants}
+            variants={cardVariants}
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             style={{
               position: 'absolute',
               top: 0,
@@ -81,15 +86,15 @@ const TestimonialCarousel = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Affichage de la carte suivante "derrière" avec opacité réduite */}
+        {/* Carte suivante floutée derrière */}
         {cards[index + 1] && (
           <motion.div
             style={{
               position: 'absolute',
-              top: 15,
-              left: 20,
-              width: '100%',
-              opacity: 0.2,
+              top: '10px',
+              left: '20px',
+              width: '90%',
+              opacity: 0.4,
               transform: 'scale(0.95)',
               zIndex: 1
             }}
@@ -104,7 +109,7 @@ const TestimonialCarousel = () => {
           <Dot key={i} onClick={() => handleDotClick(i)} active={i === index} />
         ))}
       </NavDots>
-    </div>
+    </CarouselWrapper>
   );
 };
 
