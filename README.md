@@ -57,7 +57,7 @@ business-App-Reno/
 3. Formik gère l’état du formulaire et sa soumission.
 4. Yup valide les champs avant envoi.
 5. À la soumission :
-   - Les données sont envoyées au serveur (`POST /api/register`) avec Axios.
+   - Les données sont envoyées au serveur (`POST /api/register`)
    - Le serveur les loggue dans la console et renvoie une réponse de succès.
 6. Le front affiche les données dans une boîte JSON + dans la console du navigateur.
 
@@ -80,17 +80,4 @@ npm start
 
 L'application tourne sur http://localhost:3000
 
-✅ Exemple de données envoyées
-------------------------------
 
-{
-  "firstName": "Robin",
-  "companyName": "MyStartup",
-  "email": "robin@example.com",
-  "password": "secret123",
-  "phone": "0475568666",
-  "country": "france",
-  "industry": "tech",
-  "privacyPolicy": true,
-  "accountType": "merchant"
-}
