@@ -39,8 +39,9 @@ business-App-Reno/
 - React
 - Formik – gestion du formulaire
 - Yup – validation de données
-- Axios – envoi des données vers l’API
+- Fetch API – envoi des données vers l’API
 - Styled-components – stylisation CSS dans JS
+
 
 ### Backend
 

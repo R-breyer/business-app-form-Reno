@@ -11,7 +11,7 @@ const port = 3001; // Port sur lequel le serveur backend va écouter
 app.use(bodyParser.json());
 
 // Middleware pour gérer les problèmes de CORS (Cross-Origin Resource Sharing)
-// Permet aux requêtes provenant d'autres domaines (comme ton frontend sur localhost:3000) d'accéder à ce serveur
+// Permet aux requêtes provenant d'autres domaines  d'accéder à ce serveur
 app.use(cors());
 
 // Définition de la route POST pour l'enregistrement des utilisateurs
